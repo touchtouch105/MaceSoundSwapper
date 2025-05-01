@@ -110,7 +110,6 @@ public class SimpleSoundSwapperPlugin extends Plugin
             if ( idx < simpleIdReplacements.size() )
             {
                 event.consume();
-                soundId = -1;
                 preferences.setSoundEffectVolume( volume );
                 client.playSoundEffect( simpleIdReplacements.get( idx ), volume );
                 preferences.setSoundEffectVolume( originalVolume );
@@ -139,21 +138,11 @@ public class SimpleSoundSwapperPlugin extends Plugin
 
         if (simpleIdsToSwap.contains( soundId ) )
         {
-            if ( config.volumeEnable() )
-            {
-                volume = config.volume();
-            }
-            else
-            {
-                volume = preferences.getAreaSoundEffectVolume();
-            }
-
             int idx = simpleIdsToSwap.indexOf( soundId );
 
             if ( idx < simpleIdReplacements.size() )
             {
                 event.consume();
-                soundId = -1;
                 preferences.setAreaSoundEffectVolume( volume );
                 client.playSoundEffect( simpleIdReplacements.get( idx ), volume );
                 preferences.setAreaSoundEffectVolume( originalVolume );
